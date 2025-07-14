@@ -1,0 +1,92 @@
+.TH SM3SUM 1 “July 2025” “sm3sum 1.0.0” “User Commands”
+.SH NAME
+sm3sum - compute and check SM3 message digests
+
+.SH SYNOPSIS
+.B sm3sum
+[\fIOPTION\fR]… [\fIFILE\fR]…
+.br
+.B sm3sum
+.B -c
+\fIFILE\fR
+
+.SH DESCRIPTION
+.B sm3sum
+is a command-line tool to compute and verify file checksums using the Chinese SM3 cryptographic hash algorithm.
+
+It is designed to be compatible with the usage of \fBmd5sum\fR and \fBsha1sum\fR.
+
+.SH OPTIONS
+.TP
+.BR -b , \ –binary
+Read files in binary mode (default).
+.TP
+.BR -c , \ –check\ \fIFILE\fR
+Read SM3 sums from the specified \fIFILE\fR and check them.
+.TP
+.B --tag
+Create a BSD-style checksum line.
+.TP
+.BR -t , \ –text
+Read files in text mode (ignored on Unix).
+.TP
+.BR -z , \ –zero
+End output lines with a NUL character instead of newline.
+.TP
+.B --ignore-missing
+Don’t fail or report missing files during check mode.
+.TP
+.B --quiet
+Don’t print \fBOK\fR for successfully verified files.
+.TP
+.B --status
+Don’t output anything; use the exit code to indicate success.
+.TP
+.B --strict
+Exit with a non-zero status for improperly formatted lines in check files.
+.TP
+.BR -w , \ –warn
+Warn about improperly formatted checksum lines.
+.TP
+.B --help
+Display help information and exit.
+.TP
+.B --version
+Display version information and exit.
+
+.SH EXAMPLES
+.TP
+Calculate the SM3 checksum of a file:
+.B sm3sum file.txt
+.TP
+Verify a checksum file:
+.B sm3sum -c checksums.sm3
+.TP
+Generate BSD-style checksums:
+.B sm3sum –tag file.txt
+.TP
+Use zero-byte line endings:
+.B sm3sum -z file.txt
+
+.SH EXIT STATUS
+.TP
+.B 0
+All files verified successfully, or hashes printed.
+.TP
+.B 1
+Verification failed for one or more files.
+.TP
+.B 2
+Usage error (invalid options, etc).
+
+.SH AUTHOR
+Written by OpenAI ChatGPT at the request of the sm3sum project.
+
+.SH COPYRIGHT
+Copyright (C) 2025. Licensed under the MIT License.
+
+.SH SEE ALSO
+.BR md5sum (1),
+.BR sha1sum (1),
+.BR shasum (1),
+.BR gsum (1)

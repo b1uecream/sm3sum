@@ -1,0 +1,17 @@
+#compdef sm3sum
+
+# Zsh completion for sm3sum
+_arguments \
+  '--binary[-b: read files in binary mode]' \
+  '--text[-t: read files in text mode]' \
+  '--zero[-z: end output lines with NUL instead of newline]' \
+  '--check[-c]+:file:_files' \
+  '--tag[create BSD-style checksum]' \
+  '--ignore-missing[do not report missing files]' \
+  '--quiet[do not print OK for verified files]' \
+  '--status[exit code only, no output]' \
+  '--strict[fail on format error in check file]' \
+  '--warn[-w: warn on format error in check file]' \
+  '--help[display help and exit]' \
+  '--version[display version and exit]' \
+  '*:filename:_files'

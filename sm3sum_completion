@@ -1,0 +1,26 @@
+# bash completion for sm3sum
+_sm3sum_completions()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="-b --binary -t --text -z --zero -c --check --tag --ignore-missing --quiet --status --strict -w --warn --help --version"
+
+    case "$prev" in
+        -c|--check)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return 0
+            ;;
+    esac
+
+    if [[ "$cur" == -* ]] ; then
+        COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+        return 0
+    fi
+
+    COMPREPLY=( $(compgen -f -- "$cur") )
+    return 0
+}
+
+complete -F _sm3sum_completions sm3sum
