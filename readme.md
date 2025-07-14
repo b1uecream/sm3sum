@@ -20,7 +20,7 @@
 ### 1. 从源码编译（需安装 Go 环境）
 
 ```bash
-git clone https://github.com/yourname/sm3sum.git
+git clone https://github.com/b1uecream/sm3sum.git
 cd sm3sum
 go mod tidy
 make build
